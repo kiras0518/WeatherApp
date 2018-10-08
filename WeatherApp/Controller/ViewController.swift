@@ -17,6 +17,10 @@ class ViewController: UIViewController {
     
     let weatherDataModel = WeatherDataModel()
     
+    @IBOutlet weak var temperatureLabel: UILabel!
+    @IBOutlet weak var weatherIcon: UIImageView!
+    @IBOutlet weak var cityLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         //24.7973604,120.9911356
@@ -35,7 +39,7 @@ class ViewController: UIViewController {
             if response.result.isSuccess {
                 let weatherJSONData : JSON = JSON(response.result.value)
                 //print(weatherJSONDate)
-                //print("Get data form server")
+                print("Get data form server")
                 self.updataWeatherData(json: weatherJSONData)
             } else {
                 print("Could not got data. Error \(String(describing: response.result.error))")
@@ -51,13 +55,26 @@ class ViewController: UIViewController {
             weatherDataModel.temperature = Int(temperature - 273.15)
             weatherDataModel.city = json["name"].stringValue
             weatherDataModel.condition = json["weather"][0]["id"].intValue
-
             weatherDataModel.weatherIconName = weatherDataModel.updataWeatherIcon(conditionId: weatherDataModel.condition)
             
+//            print(weatherDataModel.temperature)
+//            print(weatherDataModel.city)
+//            print(weatherDataModel.condition)
+//            print(weatherDataModel.weatherIconName)
+            
+            updataUI()
+          
+        } else {
+            cityLabel.text = "無法獲取資料"
         }
-       
+    }
+    
+    func updataUI() {
+
+        temperatureLabel.text = String(weatherDataModel.temperature)
+        weatherIcon.image = UIImage(named: weatherDataModel.weatherIconName)
+        cityLabel.text = weatherDataModel.city
         
-     
     }
         
 }

@@ -30,11 +30,11 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="240" placeholderIntrinsicHeight="240" image="cloudy" translatesAutoresizingMaskIntoConstraints="NO" id="s72-Gz-SI2">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="240" placeholderIntrinsicHeight="240" image="mist" translatesAutoresizingMaskIntoConstraints="NO" id="s72-Gz-SI2">
                                         <rect key="frame" x="48.5" y="111.5" width="240" height="222"/>
                                         <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="1"/>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loding..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LLu-UT-DOR">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loding..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="LLu-UT-DOR">
                                         <rect key="frame" x="20" y="335.5" width="297.5" height="109.5"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="50"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -76,6 +76,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="cityLabel" destination="LLu-UT-DOR" id="1kR-F9-5On"/>
+                        <outlet property="temperatureLabel" destination="fb0-FH-qqr" id="0ib-eR-w3C"/>
+                        <outlet property="weatherIcon" destination="s72-Gz-SI2" id="SXa-dJ-W6A"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -146,7 +151,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="cloudy" width="409.60000610351562" height="409.60000610351562"/>
+        <image name="mist" width="409.60000610351562" height="409.60000610351562"/>
         <image name="refresh" width="204.80000305175781" height="204.80000305175781"/>
         <image name="return" width="409.60000610351562" height="409.60000610351562"/>
         <image name="weatherView" width="1125" height="2436"/>
