@@ -10,23 +10,17 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 import SVProgressHUD
+import CoreLocation
 
-class ViewController: UIViewController,delegateProtocal {
+
+class ViewController: UIViewController,delegateProtocal,CLLocationManagerDelegate {
     
-    func newCityName(city: String) {
-        
-        print(city)
-        let q_city : [String : String] = ["q" : city, "appid" : apiKey]
-        
-        SVProgressHUD.showInfo(withStatus: "加載中...")
-        getWeatherData(url: openWeatherMap, keys: q_city)
-        
-    }
-
     let openWeatherMap = "https://api.openweathermap.org/data/2.5/weather"
     let apiKey = "41eabac85a8eaa0f4890252d94dc38ca"
     
     let weatherDataModel = WeatherDataModel()
+    let locatoinManager = CLLocationManager()
+    
     
     @IBOutlet weak var temperatureLabel: UILabel!
     @IBOutlet weak var weatherIcon: UIImageView!
@@ -34,16 +28,42 @@ class ViewController: UIViewController,delegateProtocal {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //24.7973604,120.9911356
-        let latitude = String(24.7973604)
-        let longitude = String(120.9911356)
+
+//        let latitude = String(24.7973604)
+//        let longitude = String(120.9911356)
+//
+//        let inputs : [String : String] = ["lat" : latitude, "lon" : longitude, "appid" : apiKey]
+//
+//        SVProgressHUD.showInfo(withStatus: "Loading...")
+//        getWeatherData(url: openWeatherMap, keys: inputs)
         
-        let inputs : [String : String] = ["lat" : latitude, "lon" : longitude, "appid" : apiKey]
+
+        locatoinManager.delegate = self
+        locatoinManager.desiredAccuracy = kCLLocationAccuracyBest
+
+        //用戶存取位址
+        if CLLocationManager.authorizationStatus() == CLAuthorizationStatus.notDetermined {
+            locatoinManager.requestWhenInUseAuthorization()
+        }
+
+        locatoinManager.startUpdatingLocation()
         
-        SVProgressHUD.showInfo(withStatus: "Loading...")
-        getWeatherData(url: openWeatherMap, keys: inputs)
     }
 
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        print(locations)
+        
+        if let location : CLLocation = locations[0] {
+            
+            let latitude = String(location.coordinate.latitude)
+            let longitude = String(location.coordinate.longitude)
+            
+            let inputs : [String : String] = ["lat" : latitude, "lon" : longitude, "appid" : apiKey]
+            
+            SVProgressHUD.showInfo(withStatus: "Loading...")
+            getWeatherData(url: openWeatherMap, keys: inputs)
+        }
+    }
     
     func getWeatherData(url: String, keys:[String : String]) {
         
@@ -91,6 +111,16 @@ class ViewController: UIViewController,delegateProtocal {
         
     }
     
+    func newCityName(city: String) {
+        
+        print(city)
+        let q_city : [String : String] = ["q" : city, "appid" : apiKey]
+        
+        SVProgressHUD.showInfo(withStatus: "加載中...")
+        getWeatherData(url: openWeatherMap, keys: q_city)
+        
+    }
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "gotoSecondView" {
             
