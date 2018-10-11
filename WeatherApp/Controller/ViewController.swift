@@ -9,8 +9,19 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
+import SVProgressHUD
 
-class ViewController: UIViewController {
+class ViewController: UIViewController,delegateProtocal {
+    
+    func newCityName(city: String) {
+        
+        print(city)
+        let q_city : [String : String] = ["q" : city, "appid" : apiKey]
+        
+        SVProgressHUD.showInfo(withStatus: "加載中...")
+        getWeatherData(url: openWeatherMap, keys: q_city)
+        
+    }
 
     let openWeatherMap = "https://api.openweathermap.org/data/2.5/weather"
     let apiKey = "41eabac85a8eaa0f4890252d94dc38ca"
@@ -29,6 +40,7 @@ class ViewController: UIViewController {
         
         let inputs : [String : String] = ["lat" : latitude, "lon" : longitude, "appid" : apiKey]
         
+        SVProgressHUD.showInfo(withStatus: "Loading...")
         getWeatherData(url: openWeatherMap, keys: inputs)
     }
 
@@ -75,6 +87,16 @@ class ViewController: UIViewController {
         weatherIcon.image = UIImage(named: weatherDataModel.weatherIconName)
         cityLabel.text = weatherDataModel.city
         
+        SVProgressHUD.dismiss()
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "gotoSecondView" {
+            
+            let destination = segue.destination as! SecondViewController
+            destination.delegate = self
+        }
     }
         
 }

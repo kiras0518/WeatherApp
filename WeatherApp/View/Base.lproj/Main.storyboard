@@ -86,10 +86,10 @@
             </objects>
             <point key="canvasLocation" x="133.59999999999999" y="133.5832083958021"/>
         </scene>
-        <!--View Controller-->
+        <!--Second View Controller-->
         <scene sceneID="Kyt-Dj-6Fq">
             <objects>
-                <viewController id="6ck-5Y-3mX" sceneMemberID="viewController">
+                <viewController id="6ck-5Y-3mX" customClass="SecondViewController" customModule="WeatherApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6ZQ-Jb-IiO">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -109,6 +109,9 @@
                                         <state key="normal" title="Press Here">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="getCityDetail:" destination="6ck-5Y-3mX" eventType="touchUpInside" id="vud-3a-RPc"/>
+                                        </connections>
                                     </button>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="輸入城市名" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5uD-a7-NQA">
                                         <rect key="frame" x="37.5" y="107" width="300" height="30"/>
@@ -128,6 +131,9 @@
                                     <constraint firstAttribute="width" constant="35" id="pWE-2o-E5e"/>
                                 </constraints>
                                 <state key="normal" image="return"/>
+                                <connections>
+                                    <action selector="goBackFirstView:" destination="6ck-5Y-3mX" eventType="touchUpInside" id="PA9-xr-HRQ"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -144,6 +150,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ENt-GG-Mxx"/>
                     </view>
+                    <connections>
+                        <outlet property="cityTextField" destination="5uD-a7-NQA" id="tfp-PT-UZR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KZu-s0-YN8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

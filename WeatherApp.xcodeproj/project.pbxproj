@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		39E2D09D17AB4FAECAA9AE21 /* Pods_WeatherApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D89BD76042F4FD5B7E09B2C9 /* Pods_WeatherApp.framework */; };
 		7D09D9CF216B8B250056272C /* WeatherDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D09D9CE216B8B250056272C /* WeatherDataModel.swift */; };
+		7D09D9D5216BA1610056272C /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D09D9D4216BA1610056272C /* SecondViewController.swift */; };
 		7DE42011216A0E0300005DF0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE42010216A0E0300005DF0 /* AppDelegate.swift */; };
 		7DE42013216A0E0300005DF0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE42012216A0E0300005DF0 /* ViewController.swift */; };
 		7DE42016216A0E0300005DF0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7DE42014216A0E0300005DF0 /* Main.storyboard */; };
@@ -18,6 +19,7 @@
 
 /* Begin PBXFileReference section */
 		7D09D9CE216B8B250056272C /* WeatherDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDataModel.swift; sourceTree = "<group>"; };
+		7D09D9D4216BA1610056272C /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		7DE4200D216A0E0300005DF0 /* WeatherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7DE42010216A0E0300005DF0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7DE42012216A0E0300005DF0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -55,6 +57,7 @@
 			children = (
 				7DE42010216A0E0300005DF0 /* AppDelegate.swift */,
 				7DE42012216A0E0300005DF0 /* ViewController.swift */,
+				7D09D9D4216BA1610056272C /* SecondViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -216,6 +219,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-WeatherApp/Pods-WeatherApp-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -223,6 +227,7 @@
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -237,6 +242,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7D09D9D5216BA1610056272C /* SecondViewController.swift in Sources */,
 				7DE42013216A0E0300005DF0 /* ViewController.swift in Sources */,
 				7DE42011216A0E0300005DF0 /* AppDelegate.swift in Sources */,
 				7D09D9CF216B8B250056272C /* WeatherDataModel.swift in Sources */,
